@@ -27,7 +27,7 @@
             <td>Merk</td>
             <td>Kategori</td>
             <td>Jenis Sampah</td>
-            <td>Asal Perusahaan/Produsen)</td>
+            <td>Asal Perusahaan/Produsen</td>
             <td>Berat Sampah (KG)</td>
             <td>Tanggal Dibuat</td>
 		</thead>

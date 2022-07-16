@@ -12,7 +12,7 @@
 		<script src="assets/js/pace.min.js"></script>
 		<!-- Bootstrap CSS -->
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 		<link href="assets/css/app.css" rel="stylesheet">
 		<link href="assets/css/icons.css" rel="stylesheet">
 		<title>ATLAS - Login</title>
@@ -23,7 +23,7 @@
 	<!--wrapper-->
 
     <div class="wrapper">
-        <div style="background-image : url('https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/11/24/3833346409.jpg');">
+        
         <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
@@ -40,11 +40,11 @@
                                         </button>
                                     </div>
                                     @endif
-                                    <div class="card-header">
+                                    
                                         <div class="mb-4 text-center">
                                             <img src="assets/images/logo_atlas.jpg" width="200" alt="" />
                                         </div>
-                                    </div>
+                                    
                                     <div class="card-body">
                                         <form action="/login" method="POST" id="logForm">
                                             {{ csrf_field() }}

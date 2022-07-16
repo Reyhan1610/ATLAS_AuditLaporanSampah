@@ -1,135 +1,100 @@
-@extends("layouts.app")
-@section('wrapper') 
+<!doctype html>
+<html lang="en">
 
 <head>
-
-    <title>Audit Laporan Sampah</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="assets/images/logo_atlas.jpg" type="image/png" />
+	<!--plugins-->
+	@yield("style")
+	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="assets/css/pace.min.css" rel="stylesheet" />
+	<script src="assets/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+	<link href="assets/css/icons.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    
+    <script src=https://code.jquery.com/jquery-3.5.1.js></script>
+    <script src=https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js></script>
+    <script src=https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js></script>
+    <script src=https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js></script>
 
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
 </head>
 
 <body>
+<div class="wrapper">
+		@include("layouts.header")
+		@yield("wrapper")
+		<div class="overlay toggle-icon"></div>
+         <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2022. All right reserved.</p>
+		</footer>
+	</div>
+	@yield("script")
 
   
 
 <div class="">
 
-    <h1>Custom filter/Search with Laravel Datatables Example</h1>
-
-   
-
-   
-
-    <br>
-    <a href="/home" class="btn btn-primary" target="_blank">Home</a>
-		<a href="/report/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
-   
+    <br><br><br><br><br>
 
     <table class="table table-bordered" id="mytable">
-
         <thead>
-
             <tr>
-
                 <th>ID</th>
-
                 <th>Merk</th>
                 <th>Kategori</th>
                 <th>Jenis Sampah</th>
                 <th>Asal Perusahaan/Produsen</th>
                 <th>Berat Sampah (KG)</th>
                 <th>Tanggal Dibuat</th>
-                @can('is_Admin')
-            <th >Action</th>
-          @endcan
-
-                
-
             </tr>
-
         </thead>
 
-        <tbody>
-        
-        @foreach($report as $waste)
-        <tr align=center>
-            <td>{{ $waste->id }}</td>
-            <td align=left>{{$waste->merk}}</td>
-            <td align=left>{{$waste->kategori}}</td>
-            <td>{{$waste->jenis_sampah}}</td>
-            <td>{{$waste->produsen_sampah}}</td>
-            <td>{{$waste->berat_sampah}}</td>
-            <td>{{$waste->created_at->format('d-m-Y')}}</td>
-            @can('is_Admin')
-            
-            <td>
-            <a href="{{ route('wastes.edit', $waste->id)}}" class="btn btn-primary">Edit</a>
-                <form action="{{ route('wastes.destroy', $waste->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>      
-            @endcan
-            
-        </tr>
-        @endforeach
-    </tbody>
-
+        <tbody>     
+            @foreach($report as $waste)
+            <tr>
+                <td>{{ $waste->id }}</td>
+                <td>{{$waste->merk}}</td>
+                <td>{{$waste->kategori}}</td>
+                <td>{{$waste->jenis_sampah}}</td>
+                <td>{{$waste->produsen_sampah}}</td>
+                <td>{{$waste->berat_sampah}}</td>
+                <td>{{$waste->created_at->format('d-m-Y')}}</td>         
+            </tr>
+            @endforeach
+        </tbody>
     </table>
-
 </div>
-
-  
-
 </body>
 
-  
-
-<script>
-        $(document).ready(function() {
-            $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-            $('#mytable thead tr:eq(1) th').each( function (i) {
-                var title = $(this).text();
-                $(this).html( '<input type="text" placeholder=" Search '+title+'" />' );
-
-                $( 'input', this ).on( 'keyup change', function () {
-                    if ( table.column(i).search() !== this.value ) {
-                        table
-                            .column(i)
-                            .search( this.value )
-                            .draw();
-                    }
-                });
-            });
-
-            var table = $('#mytable').DataTable( {
-                "lengthMenu": [
-                    [ 5, 10, 25, 50, 100, -1 ],
-                    [ '5', '10', '25', '50', '100', 'All' ]
-                ],
-                
-                orderCellsTop: true,
-                fixedHeader: true
-            });
-        });
-    </script>
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+</script>
 </html>

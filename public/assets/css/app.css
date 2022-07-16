@@ -112,7 +112,7 @@ a {
 	letter-spacing: 1px;
 
 
-	color: #0d6efd;
+	color: green;
 
 
 }
@@ -156,7 +156,7 @@ a {
 	background: #ffffff;
 
 
-	border-bottom: 1px solid #f0f0f0;
+	border-bottom: 1px solid green;
 
 
 	z-index: 10;
@@ -249,7 +249,7 @@ a {
 	font-size: 14px;
 
 
-	border-top: 1px solid #e4e4e4;
+	border-top: 1px solid green;
 
 
 	z-index: 3;
@@ -3335,7 +3335,7 @@ a {
 }
 
 
-.bg-facebook {
+.bg-home {
 
 
 	background-color: #3b5998!important;
@@ -3470,7 +3470,7 @@ a {
 .bg-login {
 
 
-	background-image: url(../images/login-images/bg-login-img.jpg);
+	background-image: url('https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/11/24/3833346409.jpg');
 
 
 	background-size: cover;
@@ -3584,25 +3584,27 @@ a {
 }
 
 
-.btn-facebook {
+.btn-home {
 
 
 	box-shadow: 0 2px 2px 0 rgba(59, 89, 152, 0.14), 0 3px 1px -2px rgba(59, 89, 152, 0.2), 0 1px 5px 0 rgba(59, 89, 152, 0.12);
 
 
-	background-color: #3b5998;
+	background-color: green;
 
 
 	border-color: #3b5998;
 
 
 	color: #fff;
+	width: 150px;
+	height: 150px;
 
 
 }
 
 
-.btn-facebook:hover {
+.btn-home:hover {
 
 
 	color: #fff;
