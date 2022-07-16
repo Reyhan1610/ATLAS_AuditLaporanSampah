@@ -1,6 +1,8 @@
 @extends("layouts.app")
 @section('wrapper')
 
+
+
 <div class="card uper">
 <div class="card-header">
     Tambah Data Sampah

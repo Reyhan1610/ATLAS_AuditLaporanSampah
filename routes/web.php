@@ -28,17 +28,17 @@ Route::get('/report', 'ReportController@index')->middleware('auth');
 Route::get('/report/cetak_pdf', 'ReportController@cetak_pdf')->middleware('auth');
 
 
-/*
-Route::resource('reports', 'ReportController')->middleware('auth');
 
+Route::resource('reports', 'ReportController')->middleware('auth');
+/*
 Route::get('/', function () {
     return view('index');
 });
-
+*/
 Route::get('/index', function () {
     return view('index');
 });
-Route::get('/dashboard-alternate', function () {
+Route::get('/dashboard-analytics', function () {
     return view('dashboard-alternate');
 });
 /*App*/
