@@ -37,7 +37,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div>
-                                            <p class="mb-0">Total Users</p>
+                                            <p class="mb-0">Jumlah Pengguna</p>
                                             <h5 class="mb-0">85,028</h5>
                                         </div>
                                         <div class="dropdown ms-auto">
