@@ -34,6 +34,8 @@
 
     <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+
+    <title>ATLAS - Audit Laporan Sampah</title>
 </head>
 
 <body>
@@ -54,10 +56,10 @@
 
     <br><br><br><br><br>
 
-    <table class="table table-bordered" id="mytable">
+    <table class="table table-bordered" id="wastereport">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Merk</th>
                 <th>Kategori</th>
                 <th>Jenis Sampah</th>
@@ -67,10 +69,11 @@
             </tr>
         </thead>
 
-        <tbody>     
+        <tbody>   
+            @php $i=1 @endphp  
             @foreach($report as $waste)
             <tr>
-                <td>{{ $waste->id }}</td>
+                <td>{{ $i++ }}</td>
                 <td>{{$waste->merk}}</td>
                 <td>{{$waste->kategori}}</td>
                 <td>{{$waste->jenis_sampah}}</td>
@@ -86,7 +89,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#mytable').DataTable( {
+    $('#wastereport').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
