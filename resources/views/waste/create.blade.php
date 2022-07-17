@@ -8,6 +8,13 @@
     Tambah Data Sampah
 </div>
 <div class="card-body">
+
+    @if(session('sukses'))
+        <div class="alert alert-success" role="alert">
+            {{session('sukses')}}
+        </div>
+    @endif
+
     <form method="post" action="{{ route('wastes.store') }}">
         <div class="form-group">
             @csrf
@@ -54,6 +61,8 @@
         </div><br>
         <button type="submit" class="btn btn-primary">Tambah Data</button>
     </form>
+    <br><br><br>
+    <input type="button" class="btn btn-primary" onclick="window.location.href = '/wastes';" value="Lihat Data"/>
 </div>
 </div>
 

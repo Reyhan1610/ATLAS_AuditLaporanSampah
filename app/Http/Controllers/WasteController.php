@@ -14,9 +14,9 @@ class WasteController extends Controller
      */
     public function index()
     {
-        $wastes = Waste::sortable()->paginate();
+        $wastes = Waste::all();
         
-        return view('waste.index',compact('wastes'));
+        return view('waste.index', compact('wastes'));
     }
 
     /**
@@ -46,7 +46,7 @@ class WasteController extends Controller
         ]);
         $show = Waste::create($validatedData);
    
-        return redirect('/wastes')->with('success', 'Data is successfully saved');
+        return redirect('wastes/create')->with('sukses', 'Data sampah berhasil ditambahkan');
     }
 
     /**
@@ -91,7 +91,7 @@ class WasteController extends Controller
         ]);
         Waste::whereId($id)->update($validatedData);
 
-        return redirect('/wastes')->with('success', 'Data is successfully updated');
+        return redirect('/wastes')->with('sukses', 'Data sampah berhasil diubah');
     }
 
     /**
@@ -105,6 +105,6 @@ class WasteController extends Controller
         $waste = Waste::findOrFail($id);
         $waste->delete();
 
-        return redirect('/wastes')->with('success', 'Data is successfully deleted');
+        return redirect('/wastes')->with('sukses', 'Data sampah berhasil dihapus');
     }
 }

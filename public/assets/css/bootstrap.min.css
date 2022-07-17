@@ -1767,7 +1767,7 @@ progress {
 }
 
 .table {
-	--bs-table-bg: transparent;
+	--bs-table-bg: #F0F8FF;
 	--bs-table-striped-color: #212529;
 	--bs-table-striped-bg: rgba(0, 0, 0, 0.05);
 	--bs-table-active-color: #212529;
@@ -1778,7 +1778,7 @@ progress {
 	margin-bottom: 1rem;
 	color: #212529;
 	vertical-align: top;
-	border-color: #dee2e6
+	border-color: green
 }
 
 .table>:not(caption)>*>* {
@@ -2889,7 +2889,7 @@ fieldset:disabled .btn {
 .btn-primary {
 	color: #fff;
 	background-color: #0d6efd;
-	border-color: #0d6efd
+	width: 125px;
 }
 
 .btn-primary:hover {
@@ -3114,7 +3114,7 @@ fieldset:disabled .btn {
 .btn-danger {
 	color: #fff;
 	background-color: #f41127;
-	border-color: #f41127
+	width: 125px;
 }
 
 .btn-danger:hover {
