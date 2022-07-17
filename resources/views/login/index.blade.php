@@ -19,6 +19,15 @@
 	</head>
 
 <body class="bg-login">
+<style>
+        {
+            background-image: url('bg-atlas.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;    
+        }
+           
+        
+    </style>
 
 	<!--wrapper-->
 
