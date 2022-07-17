@@ -12,6 +12,8 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <title>ATLAS - Lihat Data</title>
 </head>
 
 <body>
@@ -19,10 +21,16 @@
 
     <br><br><br><br><br>
 
+    @if(session('sukses'))
+        <div class="alert alert-success" role="alert">
+            {{session('sukses')}}
+        </div>
+    @endif
+
     <table class="table table-bordered" id="mytable">
         <thead align="Center">
             <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Merk</th>
                 <th>Kategori</th>
                 <th>Jenis Sampah</th>
@@ -38,9 +46,10 @@
         </thead>
 
         <tbody> 
+        @php $i=1 @endphp
         @foreach($wastes as $waste)
         <tr align=center>
-            <td>{{ $waste->id }}</td>
+            <td>{{ $i++ }}</td>
             <td align=left>{{$waste->merk}}</td>
             <td align=left>{{$waste->kategori}}</td>
             <td>{{$waste->jenis_sampah}}</td>
@@ -63,6 +72,7 @@
         @endforeach
     </tbody>
     </table>
+    
 </div>
   
 <br><br><br>
