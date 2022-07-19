@@ -24,25 +24,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/home');
         }
-        /*request()->validate(
-            [
-                'username' => 'required',
-                'password' => 'required',
-            ]);
-
-        $kredensial = $request->only('username','password');
-
-            if (Auth::attempt($kredensial)) {
-                $user = Auth::user();
-                $request->session()->regenerate();
-                if ($user->role == 'admin') {
-                    return redirect()->intended('/home');
-                } elseif ($user->role == 'user') {
-                    return redirect()->intended('/home');
-                }
-                return redirect()->intended('/');
-            }*/
-
+        
             return back()
                                 ->withInput()
                                 ->withErrors(['login_gagal' => 'Username atau Password yang anda masukkan salah!']);

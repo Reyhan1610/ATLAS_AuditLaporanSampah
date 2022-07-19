@@ -24,14 +24,6 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function cetak_pdf()
-    {
-	    $report = Waste::all();
- 
-	    $pdf = PDF::loadview('report.create',['wastes'=>$report]);
-	    return $pdf->stream();
-    }
     
     public function create()
     {
