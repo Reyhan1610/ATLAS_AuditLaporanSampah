@@ -22,10 +22,10 @@ class AkunSeeder extends Seeder
                 'password'=> bcrypt('admin123'),
             ],
             [
-                'username' => 'user',
-                'name'=>'User (non admin)',
+                'username' => 'guest',
+                'name'=>'Guest',
                 'isAdmin'=>false,
-                'password'=> bcrypt('user123'),
+                'password'=> bcrypt('guest123'),
             ],
         ];
 
