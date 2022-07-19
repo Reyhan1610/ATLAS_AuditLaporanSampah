@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Waste;
+use Illuminate\Support\Facades\DB;
 
 class WasteController extends Controller
 {
@@ -14,9 +15,19 @@ class WasteController extends Controller
      */
     public function index()
     {
-        $wastes = Waste::all();
-        
-        return view('waste.index', compact('wastes'));
+        {
+            $wastes = Waste::all();
+            
+            $beratmerk = [];
+            $data = [];
+            foreach ($wastes as $waste) {
+                $beratmerk [] = $waste->merk;
+                $data[] = $waste->berat_sampah;    
+                
+            }
+    
+            return view('waste.index', compact('wastes'), ['beratmerk' => $beratmerk, 'data' => $data]);
+        }
     }
 
     /**

@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-    <title>ATLAS - Lihat Data</title>
+    <title>SPAM - Lihat Data</title>
 </head>
 
 <body>
@@ -26,6 +26,9 @@
             {{session('sukses')}}
         </div>
     @endif
+    <div id="chartberatmerk">
+                    </div>
+                    <br><br><br>
 
     <table class="table table-bordered" id="mytable">
         <thead align="Center">
@@ -77,6 +80,53 @@
   
 <br><br><br>
 </body>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+Highcharts.chart('chartberatmerk', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Data Berat Sampah per Merk'
+    },
+     accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        categories: {!!json_encode($beratmerk)!!}
+    },
+    yAxis: {
+        title: {
+            text: 'KG'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y} KG'
+            }
+        }
+    },
+    tooltip: {
+        
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} KG<br/>'
+    },
+    series: [{
+        name: 'Berat Sampah',
+        colorByPoint: true,
+        data: {!!json_encode($data)!!}
+
+    }]
+});
+</script>
 
 <script>
         $(document).ready(function() {
