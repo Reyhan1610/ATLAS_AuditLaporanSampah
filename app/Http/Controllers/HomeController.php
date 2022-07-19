@@ -4,22 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Waste;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $wastes = Waste::all();
-        
-        $wastes_chart = [];
-        $data = [];
-        foreach ($wastes as $waste) {
-            $wastes_chart[] = $waste->merk;
-            $data[] = $waste->berat_sampah;    
-            
-        }
-        //dd ($data);
+        $banyakkategori = DB::table('wastes')
+            ->select(DB::raw('count(*) as kat1'))
+            ->groupBy('kategori')
+            ->pluck('kat1');
 
-        return view('home.index', ['wastes_chart' => $wastes_chart, 'data' => $data]);
+        return view('home.index', ['banyakkategori' => $banyakkategori]);
     }
 }

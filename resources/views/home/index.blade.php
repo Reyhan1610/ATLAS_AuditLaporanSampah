@@ -1,41 +1,38 @@
-    @extends("layouts.app")
+@extends("layouts.app")
+@section("wrapper")
 
-        @section("wrapper")
-            <div class="page-wrapper">
-            <div class="page-content">
-                    <div class="col-md- d-flex">
-                        <div class="card radius-10 w-100">
-                            <div class="card-body">
-                                <div id="container"></div><br><br><br>
-                                <div class="d-flex align-items-end justify-content-around">
-                                 
+    <div class="">
+        <div class="col-md-12 d-flex">
+            <div class="wrapper">
+                <br><br><br><br><br>
+                    <div id="chartbanyakkategori">
+                    </div>
+                    <br><br><br>
+                    
+                        <div class="d-flex align-items-end justify-content-around">
+                                    
+                            @can('is_Admin')
+                                <input type="button" class="btn btn-home" onclick="window.location.href = '/wastes/create';" value="Tambah Data"/>
+                            @endcan    
 
-                                    @can('is_Admin')
-                                    <input type="button" class="btn btn-home" onclick="window.location.href = '/wastes/create';" value="Tambah Data"/>
-                                    @endcan    
-
-                                    <input type="button" class="btn btn-home" onclick="window.location.href = '/wastes';" value="Lihat Data"/>
-                                    <input type="button" class="btn btn-home" onclick="window.location.href = '/report';"value="Buat Laporan"/>
-                                   
-                                
-                                </div>  
-                            
-                        </div>
-                    </div> 
-                </div> 
-            </div>
-        </div>
-		
-
-        
+                            <input type="button" class="btn btn-home" onclick="window.location.href = '/wastes';" value="Lihat Data"/>
+                            <input type="button" class="btn btn-home" onclick="window.location.href = '/report';"value="Buat Laporan"/>
+                                    
+                        </div>            
+                
+            </div> 
+        </div> 
+        <br><br><br><br><br>
+    </div>
+               
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
-Highcharts.chart('container', {
+Highcharts.chart('chartbanyakkategori', {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Data Berat Sampah per Merk'
+        text: 'Data Banyak Sampah per Kategori'
     },
      accessibility: {
         announceNewData: {
@@ -43,11 +40,25 @@ Highcharts.chart('container', {
         }
     },
     xAxis: {
-        categories: {!!json_encode($wastes_chart)!!},
+        categories: 
+        [
+            'B3',
+            'Kaca',
+            'Karet',
+            'Kayu',
+            'Keramik',
+            'Kertas',
+            'Logam',
+            'Plastik Daur Ulang',
+            'Plastik Sekali Pakai',
+            'Tekstil',
+            'Lainnya'
+        ]
+
     },
     yAxis: {
         title: {
-            text: 'KG'
+            text: 'Banyak Sampah'
         }
     },
     legend: {
@@ -58,47 +69,18 @@ Highcharts.chart('container', {
             borderWidth: 0,
             dataLabels: {
                 enabled: true,
-                format: '{point.y} KG'
+                format: '{point.y} Sampah'
             }
         }
     },
-    tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} KG<br/>'
+    tooltip: {  
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} Sampah<br/>'
     },
     series: [{
         name: 'Berat Sampah',
         colorByPoint: true,
-        data: {!!json_encode($data)!!}
+        data: {!!json_encode($banyakkategori)!!}
 
     }]
 });
 </script>
-<script>
-        $(document).ready(function() {
-            $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-            $('#mytable thead tr:eq(1) th').each( function (i) {
-                var title = $(this).text();
-                $(this).html( '<input type="text" placeholder=" Search '+title+'" />' );
-
-                $( 'input', this ).on( 'keyup change', function () {
-                    if ( table.column(i).search() !== this.value ) {
-                        table
-                            .column(i)
-                            .search( this.value )
-                            .draw();
-                    }
-                });
-            });
-
-            var table = $('#mytable').DataTable( {
-                "lengthMenu": [
-                    [ -1, 5, 10, 25, 50, 100],
-                    [ 'All', '5', '10', '25', '50', '100']
-                ],
-                
-                orderCellsTop: true,
-                fixedHeader: true
-            });
-        });
-    </script>
