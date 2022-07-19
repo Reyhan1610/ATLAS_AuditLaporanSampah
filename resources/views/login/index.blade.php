@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--favicon-->
-		<link rel="icon" href="assets/images/logo_atlas.jpg" type="image/png" />
+		<link rel="icon" href="assets/images/logo-spam.png" type="image/png" />
 		<!-- loader-->
 		<link href="assets/css/pace.min.css" rel="stylesheet" />
 		<script src="assets/js/pace.min.js"></script>
@@ -15,24 +15,11 @@
 	    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 		<link href="assets/css/app.css" rel="stylesheet">
 		<link href="assets/css/icons.css" rel="stylesheet">
-		<title>ATLAS - Login</title>
+		<title>SPAM - Login</title>
 	</head>
 
 <body class="bg-login">
-<style>
-        {
-            background-image: url('bg-atlas.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;    
-        }
-           
-        
-    </style>
-
-	<!--wrapper-->
-
-    <div class="wrapper">
-        
+    <div class="wrapper">   
         <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
@@ -51,7 +38,7 @@
                                     @endif
                                     
                                         <div class="mb-4 text-center">
-                                            <img src="assets/images/logo_atlas.jpg" width="200" alt="" />
+                                            <img src="assets/images/logo-spam.png" width="350" alt="" />
                                         </div>
                                     
                                     <div class="card-body">

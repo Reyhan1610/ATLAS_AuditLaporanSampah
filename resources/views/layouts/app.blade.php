@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('assets/images/logo_atlas.jpg') }}" type="image/png">
+    <link rel="icon" href="{{ asset('assets/images/logo-spam.png') }}" type="image/png">
 
 	@yield("style")
     <link rel="stylesheet" href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}">
 
-    <title>ATLAS - Audit Laporan Sampah</title>
+    <title>SPAM - Sistem Informasi Pelaporan Sampah</title>
 </head>
 
 <body>

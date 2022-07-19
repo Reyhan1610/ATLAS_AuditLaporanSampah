@@ -4,10 +4,10 @@
                 <nav class="navbar navbar-collapse">
                     <div class="topbar-logo-header" onclick="location.href = '/home';">
                         <div class="">
-                            <img src="{{ asset('assets/images/logo_atlas.jpg') }}" class="logo-icon" alt="logo icon">
+                            <img src="{{ asset('assets/images/logo-spam.png') }}" class="logo-icon" alt="logo icon">
                         </div>
                         <div class="">
-                            <h4 class="logo-text">ATLAS</h4>
+                            <h4 class="logo-text">SPAM</h4>
                         </div>
                     </div>
                     

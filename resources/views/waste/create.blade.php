@@ -2,11 +2,8 @@
 @section('wrapper')
 
 
-
+<br><br><br>
 <div class="card uper">
-<div class="card-header">
-    Tambah Data Sampah
-</div>
 <div class="card-body">
 
     @if(session('sukses'))

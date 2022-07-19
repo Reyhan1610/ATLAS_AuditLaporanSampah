@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="assets/images/logo_atlas.jpg" type="image/png" />
+	<link rel="icon" href="assets/images/logo-spam.png"> type="image/png" />
 	<!--plugins-->
 	@yield("style")
 	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
     <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
 
-    <title>ATLAS - Audit Laporan Sampah</title>
+    <title>SPAM - Sistem Informasi Pelaporan Sampah</title>
 </head>
 
 <body>
@@ -55,11 +55,10 @@
 <div class="">
 
     <br><br><br><br><br>
-
+    
     <table class="table table-bordered" id="wastereport">
         <thead>
             <tr>
-                <th>No</th>
                 <th>Merk</th>
                 <th>Kategori</th>
                 <th>Jenis Sampah</th>
@@ -73,7 +72,6 @@
             @php $i=1 @endphp  
             @foreach($report as $waste)
             <tr>
-                <td>{{ $i++ }}</td>
                 <td>{{$waste->merk}}</td>
                 <td>{{$waste->kategori}}</td>
                 <td>{{$waste->jenis_sampah}}</td>
